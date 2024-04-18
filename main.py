@@ -44,6 +44,35 @@ class App(customtkinter.CTk): #создание класса приложени�
         self.navigation_frame_label = customtkinter.CTkLabel(self.navigation_frame, text="  Всё о VR",
                                                              compound="left",
                                                              font=customtkinter.CTkFont(size=15, weight="bold")) #текст навигационного окна, выравнивание и присвоение нужного шрифта
+        self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20) #задаем расположение на окне grid
+         # Кнопка с иторией VR
+        self.frame_1_button = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40,
+                                                      border_spacing=10, #отступ от границ кнопки для текста
+                                                      text="История и что такое VR",
+                                                      fg_color="transparent", text_color=("gray10", "gray90"),
+                                                      image=self.history_image,
+                                                      hover_color=("gray70", "gray30"), #обводка для фотки
+                                                      anchor="w", command=self.home_button_event) #выравнивание 
+        self.frame_1_button.grid(row=1, column=0, sticky="ew") #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)
+        # Кнопка со вторым окном(Тип VR)
+        self.frame_2_button = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40,
+                                                      border_spacing=10, text="Какими бывают VR шлемы?",
+                                                      fg_color="transparent", text_color=("gray10", "gray90"),
+                                                      image=self.type_image,
+                                                      hover_color=("gray70", "gray30"),
+                                                      anchor="w", command=self.frame_2_button_event)
+        self.frame_2_button.grid(row=2, column=0, sticky="ew")
+        # Кнопка с третьим окном(Сравнение Шлемов)
+        self.frame_3_button = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40,
+                                                      border_spacing=10, text="Сравнение топ 3 \nшлема из категории",
+                                                      fg_color="transparent", text_color=("gray10", "gray90"),
+                                                      hover_color=("gray70", "gray30"),
+                                                      anchor="w", image=self.sravn_image,
+                                                      command=self.frame_3_button_event)
+        self.frame_3_button.grid(row=3, column=0, sticky="ew") #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)
+
+
+
 
 #вызов класса и запуск прилоения
 if __name__ == "__main__": #если имя соответсвует мейну
