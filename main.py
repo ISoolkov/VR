@@ -70,7 +70,27 @@ class App(customtkinter.CTk): #создание класса приложени�
                                                       anchor="w", image=self.sravn_image,
                                                       command=self.frame_3_button_event)
         self.frame_3_button.grid(row=3, column=0, sticky="ew") #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)
+ # Кнопка выхода
+        self.exit = customtkinter.CTkButton(master=self.navigation_frame, text="", command=self.exit_form, #мастер - это где кнопка будет распологаться (в каком окне)
+                                            image=self.exit_image, height=30, fg_color="transparent") #будет совпадать с цветом формы
+        self.exit.grid(row=5, column=0, padx=20, pady=20, sticky="s") #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
 
+        # кнопка разрешения
+        self.scaling_optionemenu = customtkinter.CTkOptionMenu(self.navigation_frame,
+                                                               values=["80%", "90%", "100%", "110%", "120%"],
+                                                               command=self.change_scaling_event)
+        self.scaling_optionemenu.grid(row=6, column=0, padx=20, pady=(10, 20)) #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
+        # Кнопка смены темы
+        self.appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame,
+                                                                values=["System", "Dark", "Light"],
+                                                                command=self.change_appearance_mode_event)
+        self.appearance_mode_menu.grid(row=7, column=0, padx=20, pady=20, sticky="s") #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
+  # создание 1-ого окна
+        self.main_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
+        # Текст
+        self.chto = customtkinter.CTkTextbox(master=self.main_frame, width=1280, height=500)
+        self.chto.configure(state='disabled')
+        self.chto.grid(row=1, column=0, padx=20, pady=10, columnspan=2)
 
 
 
