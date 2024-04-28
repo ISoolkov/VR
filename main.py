@@ -91,6 +91,25 @@ class App(customtkinter.CTk): #создание класса приложени�
         self.chto = customtkinter.CTkTextbox(master=self.main_frame, width=1280, height=500)
         self.chto.configure(state='disabled')
         self.chto.grid(row=1, column=0, padx=20, pady=10, columnspan=2)
+         # Кнопка истории
+        self.button_history = customtkinter.CTkButton(master=self.main_frame, text="Показать Историю Vr",
+                                                      command=self.history)
+        self.button_history.grid(row=2, column=0, pady=10, ipadx=15)
+        # Кнопка Что такое VR шлем
+        self.button_what = customtkinter.CTkButton(master=self.main_frame,
+                                                   text="Показать Что такое Vr шлем и его история",
+                                                   command=self.what)
+        self.button_what.grid(row=2, column=1, pady=10, padx=50, ipadx=5)
+
+        # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        # создание 2-ого окна
+        self.second_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
+        self.second_frame.grid_columnconfigure(0, weight=1)
+        self.n = customtkinter.StringVar(value="")  # Создания переменной
+        # Окно для картинок
+        self.img_frame = customtkinter.CTkFrame(master=self.second_frame, fg_color="transparent")
+        self.img_frame.grid(row=4, column=0, ipady=10, ipadx=10, padx=60, sticky="nsew")
 
 
 
