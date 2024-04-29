@@ -110,6 +110,36 @@ class App(customtkinter.CTk): #создание класса приложени�
         # Окно для картинок
         self.img_frame = customtkinter.CTkFrame(master=self.second_frame, fg_color="transparent")
         self.img_frame.grid(row=4, column=0, ipady=10, ipadx=10, padx=60, sticky="nsew")
+          # Варианты типов шлемов
+        self.tip = customtkinter.CTkComboBox(master=self.second_frame, variable=self.n,
+                                             values=["Автономный", "Проводной"], command=self.check_tip, width=160,
+                                             height=40)
+        self.tip.grid(row=1, column=0, pady=15, padx=10, sticky=customtkinter.NE)
+        # Многострочный текст для 2-ого окна
+        self.txtbox = customtkinter.CTkTextbox(master=self.second_frame, width=1280, height=400)
+        self.txtbox.configure(state='disabled')
+        self.txtbox.grid(row=2, column=0, padx=10, pady=15, columnspan=3)
+        # текстовая метка с объяснением
+        self.img_label = customtkinter.CTkLabel(master=self.second_frame, fg_color="transparent",
+                                                text="Примеры Vr шлемов выбранной категории:")
+        self.img_label.grid(row=3, column=0, ipady=10, ipadx=10)
+        # переменные для размера картинок
+        self.sizex_2 = 350
+        self.sizey_2 = 350
+        # картинки для 2-го окна
+        self.image1 = customtkinter.CTkImage(Image.open("pico4.png"), size=(self.sizex_2, self.sizey_2))
+        self.image2 = customtkinter.CTkImage(Image.open("oculus_quest3.png"), size=(self.sizex_2, self.sizey_2))
+        self.image3 = customtkinter.CTkImage(Image.open("pimax_crystal.png"), size=(self.sizex_2, self.sizey_2))
+        self.image4 = customtkinter.CTkImage(Image.open("htc_vive_pro.png"), size=(self.sizex_2, self.sizey_2))
+        self.image5 = customtkinter.CTkImage(Image.open("playstation-vr2.png"), size=(self.sizex_2, self.sizey_2))
+        self.image6 = customtkinter.CTkImage(Image.open("valve_index_vrkit.png"), size=(self.sizex_2, self.sizey_2))
+        # Текстовые метки для фоток
+        self.img_label1 = customtkinter.CTkLabel(master=self.img_frame, fg_color="transparent", text="")
+        self.img_label1.grid(row=4, column=0, ipady=10, padx=25, sticky=customtkinter.NSEW)
+        self.img_label2 = customtkinter.CTkLabel(master=self.img_frame, fg_color="transparent", text="")
+        self.img_label2.grid(row=4, column=1, ipady=10, padx=25, sticky=customtkinter.NSEW)
+        self.img_label3 = customtkinter.CTkLabel(master=self.img_frame, fg_color="transparent", text="")
+        self.img_label3.grid(row=4, column=2, ipady=10, padx=25, sticky=customtkinter.NSEW)
 
 
 
