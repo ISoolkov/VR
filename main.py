@@ -140,6 +140,31 @@ class App(customtkinter.CTk): #создание класса приложени�
         self.img_label2.grid(row=4, column=1, ipady=10, padx=25, sticky=customtkinter.NSEW)
         self.img_label3 = customtkinter.CTkLabel(master=self.img_frame, fg_color="transparent", text="")
         self.img_label3.grid(row=4, column=2, ipady=10, padx=25, sticky=customtkinter.NSEW)
+         # создание 3-ого окна
+        self.third_fr = customtkinter.CTkFrame(master=self, corner_radius=0, fg_color="transparent")
+        self.third_fr.grid_columnconfigure(0, weight=1) #занимает все оставшиеся колонки до конца экрана
+        #вставка окон для выбора шлема
+        self.combo_left1 = customtkinter.CTkFrame(master=self.third_fr, corner_radius=0, fg_color="transparent")
+        self.combo_left1.grid(row=2, column=0, ipady=10, ipadx=20, sticky="nsew") #отступ отладка слева
+        self.combo_left = customtkinter.CTkFrame(master=self.third_fr, corner_radius=0, fg_color="transparent")
+        self.combo_left.grid(row=2, column=1, ipady=10, ipadx=20, sticky="nsew") #создаёт выпадающий список
+        self.combo_right = customtkinter.CTkFrame(master=self.third_fr, corner_radius=0, fg_color="transparent")
+        self.combo_right.grid(row=2, column=2, ipady=10, ipadx=10, sticky="nsew") #создаёт выпадающий список
+        self.combo_right1 = customtkinter.CTkFrame(master=self.third_fr, corner_radius=0, fg_color="transparent")
+        self.combo_right1.grid(row=2, column=3, ipady=10, ipadx=10, sticky="nsew") #отступ отладка справа
+        self.combo_right2 = customtkinter.CTkFrame(master=self.third_fr, corner_radius=0, fg_color="transparent")
+        self.combo_right2.grid(row=2, column=4, ipady=10, ipadx=10, sticky="nsew") #отступ отладка справа
+        self.tabview = customtkinter.CTkTabview(self, width=250) #таблица сравнения
+
+        # переменные для 3-ого окна
+        self.a = customtkinter.StringVar(value="") #переменная которая ничего в себе не хранит, но может быть изменена
+        self.b = customtkinter.StringVar(value="") #переменная которая ничего в себе не хранит, но может быть изменена (выбранный шлем)
+        self.name = customtkinter.StringVar(value=" ") #хранит в себе изменённый вид self a
+        self.name1 = customtkinter.StringVar(value=" ") #хранит в себе изменённый вид self b
+
+        # размер фоток
+        self.sizex_3 = 250 #создание переменной которая хранит в себе размер фотки по иксу
+        self.sizey_3 = 250
 
 
 
