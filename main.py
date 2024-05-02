@@ -165,6 +165,36 @@ class App(customtkinter.CTk): #создание класса приложени�
         # размер фоток
         self.sizex_3 = 250 #создание переменной которая хранит в себе размер фотки по иксу
         self.sizey_3 = 250
+          # фотки шлемов
+        self.photo1 = customtkinter.CTkImage(Image.open("pico4.png"), size=(self.sizex_3, self.sizey_3)) #загрузка фотографий
+        self.photo2 = customtkinter.CTkImage(Image.open("oculus_quest3.png"), size=(self.sizex_3, self.sizey_3))  #загрузка фотографий
+        self.photo3 = customtkinter.CTkImage(Image.open("pimax_crystal.png"), size=(self.sizex_3, self.sizey_3))  #загрузка фотографий
+        self.photo4 = customtkinter.CTkImage(Image.open("htc_vive_pro.png"), size=(self.sizex_3, self.sizey_3))  #загрузка фотографий
+        self.photo5 = customtkinter.CTkImage(Image.open("playstation-vr2.png"), size=(self.sizex_3, self.sizey_3))  #загрузка фотографий
+        self.photo6 = customtkinter.CTkImage(Image.open("valve_index_vrkit.png"), size=(self.sizex_3, self.sizey_3)) #загрузка фотографий
+        #Метка пояснения
+        self.label_title = customtkinter.CTkLabel(master=self.third_fr,
+                                                  text="Выберите один из представленных шлемов для сравнения")
+        self.label_title.grid(row=0, column=0, ipady=10, ipadx=10, columnspan=4) #сколько столбцов будет занимать
+        #Переменная для значения списка со шлемами
+        self.vals = ["Pico 4", "Oculus Quest3",
+                     "Pimax crystal", "HTC Vive Pro",
+                     "Playstation VR 2", "Valve Index VRkit"] #задаём список шлемов
+        # Созднания левого и правого выбора(выпадающего списка)
+        self.combo_first_vibor = customtkinter.CTkComboBox(master=self.combo_left, variable=self.a, #переменная которая хранит в себе значение списка
+                                                           values=self.vals,
+                                                           command=self.vibor_combo)
+        self.combo_first_vibor.grid(row=1, column=0, ipadx=5, pady=5, padx=40)  #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
+        self.combo_second_vibor = customtkinter.CTkComboBox(master=self.combo_right, variable=self.b, #переменная которая хранит в себе значение списка
+                                                            values=self.vals,
+                                                            command=self.vibor_combo, state="disabled") #выключена до выбора первого шлема
+        self.combo_second_vibor.grid(row=1, column=1, ipadx=5, pady=5, padx=40, sticky="ne")  #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
+        #создание меток для выбранного шлема
+        self.photo_left_vibor = customtkinter.CTkLabel(master=self.combo_left, text="") #левая фотка
+        self.photo_left_vibor.grid(row=2, column=0, ipady=10, ipadx=10, padx=10, sticky="nsew")  #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
+        self.photo_right_vibor = customtkinter.CTkLabel(master=self.combo_right, text="") #правая фотка
+        self.photo_right_vibor.grid(row=2, column=1, ipady=10, ipadx=10, sticky="nsew")  #расположение с помощью размерной сетки ввиде таблицы и ее выравнивание (sticky = выравнивание)\ pad - это отступ
+       
 
 
 
