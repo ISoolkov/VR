@@ -214,6 +214,35 @@ class App(customtkinter.CTk): #создание класса приложени�
 
         # выбор стандартного окна
         self.select_frame_by_name("main_frame")
+        
+    def select_frame_by_name(self, name_frame):  # функция выбора окна для отрисовки
+        # смена цвета при наведении на кнопку выбора окна
+        self.frame_1_button.configure(fg_color=("gray75", "gray25") if name_frame == "home" else "transparent")
+        self.frame_2_button.configure(fg_color=("gray75", "gray25") if name_frame == "frame_2" else "transparent")
+        self.frame_3_button.configure(fg_color=("gray75", "gray25") if name_frame == "frame_3" else "transparent")
+
+        # отрисовка выбранного окна
+        if name_frame == "main_frame":
+            self.main_frame.grid(row=0, column=1, sticky="nsew")
+        else:  # если не подходит по условию
+            self.main_frame.grid_forget()  # забываем
+        if name_frame == "frame_2":
+            self.second_frame.grid(row=0, column=1, sticky="nsew")
+        else:
+            self.second_frame.grid_forget()
+        if name_frame == "frame_3":
+            self.third_fr.grid(row=0, column=1, sticky="nsew")
+        else:
+            self.third_fr.grid_forget()
+
+    def home_button_event(self):  # функция выбора 1-ого окна
+        self.select_frame_by_name("main_frame")
+
+    def frame_2_button_event(self):  # функция выбора 2-ого окна
+        self.select_frame_by_name("frame_2")
+
+    def frame_3_button_event(self):  # функция выбора 3-ого окна
+        self.select_frame_by_name("frame_3")
 
 
 
