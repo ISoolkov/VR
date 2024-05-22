@@ -370,7 +370,257 @@ class App(customtkinter.CTk): #создание класса приложени�
                                     " расширенное отслеживание и опыт погружения, у них также есть ряд недостатков, включая стоимость, трудности настройки и недостаточную мобильность."
                                     " Эти факторы следует тщательно учитывать при определении наилучшего типа гарнитуры виртуальной реальности для конкретного приложения или пользователя.")
         self.txtbox.configure(state='disabled')
+    def combo(self): #функция измениения списка(удаление из второго списка выбранный вариант в первом и наоборот)
+        self.k = 0
+        self.name = self.a.get()
+        self.name1 = self.b.get()
+        if self.name != " " and self.name1 != " ":
+            self.combo_second_vibor.configure(state="normal")
+            if self.name in self.vals:
+                self.vals = ["Pico 4", "Oculus Quest3",
+                             "Pimax crystal", "HTC Vive Pro",
+                             "Playstation VR 2", "Valve Index VRkit"]
+                self.k = (self.vals.index(self.name))
+                self.vals.remove(self.vals[self.k])
+                self.combo_second_vibor.configure(values=self.vals)
+            elif self.name1 in self.vals:
+                self.vals = ["Pico 4", "Oculus Quest3",
+                             "Pimax crystal", "HTC Vive Pro",
+                             "Playstation VR 2", "Valve Index VRkit"]
+                self.k = (self.vals.index(self.name1))
+                self.vals.remove(self.vals[self.k])
+                self.combo_first_vibor.configure(values=self.vals)
 
+
+    def vibor_combo(self, event): #функция заполнения таблицы при выбере 2 шлемов
+        self.name = self.a.get() #переменная name получает знаечение переменной а
+        self.name1 = self.b.get() #переменная name1 получает знаечение переменной b
+
+
+        #--------------------------------------------------------------------------------------------------------------
+        # значения которые будут проставляться в таблицу
+        self.ozu = "Минимальные требования к компьютеру - 8Гб ОЗУ"
+        no_battery = "подключается к источнику питания"
+        col1 = 1
+        col2 = 2
+        connect_wire = "Проводной"
+        connect_nonwire = "Без проводной"
+        # --------------------------------------------------------------------------------------------------------------
+        # если шлем выбран в левом выборе
+        if self.name == "Pico 4":
+            self.combo() #вызывает функцию комбо
+            self.table.insert(1, col1, "Pico 4")
+            self.table.insert(2, col1, connect_nonwire)
+            self.table.insert(3, col1, "4320 x 2160")
+            self.table.insert(4, col1, "105°")
+            self.table.insert(5, col1, "5300 mAh")
+            self.table.insert(6, col1, "586")
+            self.table.insert(7, col1, "90")
+            self.table.insert(8, col1, 8)
+            self.table.insert(9, col1, "54 000")
+            self.photo_left_vibor.configure(image=self.photo1) #подгон нужной фотки
+        elif self.name == "Oculus Quest3":
+            self.combo()
+            self.table.insert(1, col1, "Oculus Quest3")
+            self.table.insert(2, col1, connect_nonwire)
+            self.table.insert(3, col1, "4416 x 2064")
+            self.table.insert(4, col1, "110°")
+            self.table.insert(5, col1, "5300 mAh")
+            self.table.insert(6, col1, "503")
+            self.table.insert(7, col1, "90")
+            self.table.insert(8, col1, 8)
+            self.table.insert(9, col1, "70 000")
+            self.photo_left_vibor.configure(image=self.photo2)
+        elif self.name == "Pimax crystal":
+            self.combo()
+            self.table.insert(1, col1, "Pimax crystal")
+            self.table.insert(2, col1, connect_nonwire)
+            self.table.insert(3, col1, "5760 x 2880")
+            self.table.insert(4, col1, "120°")
+            self.table.insert(5, col1, "6000 mAh")
+            self.table.insert(6, col1, "840")
+            self.table.insert(7, col1, "150")
+            self.table.insert(8, col1, 8)
+            self.table.insert(9, col1, "от 143 000")
+            self.photo_left_vibor.configure(image=self.photo3)
+        elif self.name == "HTC Vive Pro":
+            self.combo()
+            self.table.insert(1, col1, "HTC Vive Pro")
+            self.table.insert(2, col1, connect_wire)
+            self.table.insert(3, col1, "2880 x 1600")
+            self.table.insert(4, col1, "110°")
+            self.table.insert(5, col1, no_battery)
+            self.table.insert(6, col1, "520")
+            self.table.insert(7, col1, "90")
+            self.table.insert(8, col1, self.ozu)
+            self.table.insert(9, col1, "107 000")
+            self.photo_left_vibor.configure(image=self.photo4)
+        elif self.name == "Playstation VR 2":
+            self.combo()
+            self.table.insert(1, col1, "Playstation VR 2")
+            self.table.insert(2, col1, connect_wire)
+            self.table.insert(3, col1, "4000 x 2040")
+            self.table.insert(4, col1, "110°")
+            self.table.insert(5, col1, no_battery)
+            self.table.insert(6, col1, "600")
+            self.table.insert(7, col1, "120")
+            self.table.insert(8, col1, "Подключается только к playstation 5")
+            self.table.insert(9, col1, "75 000")
+            self.photo_left_vibor.configure(image=self.photo5)
+        elif self.name == "Valve Index VRkit":
+            self.combo()
+            self.table.insert(2, col1, connect_wire)
+            self.table.insert(1, col1, "Valve Index VRkit")
+            self.table.insert(3, col1, "2880 x 1600")
+            self.table.insert(4, col1, "130°")
+            self.table.insert(5, col1, no_battery)
+            self.table.insert(6, col1, "810")
+            self.table.insert(7, col1, "144")
+            self.table.insert(8, col1, self.ozu)
+            self.table.insert(9, col1, "180 000")
+            self.photo_left_vibor.configure(image=self.photo6)
+        else:
+            pass #ничего не делать при отсутствии выбора 1 шлема
+        # если шлем выбран в правом выборе
+        if self.name1 == "Pico 4":
+            self.combo()
+            self.table.insert(1, col2, "Pico 4")
+            self.table.insert(2, col2, connect_nonwire)
+            self.table.insert(3, col2, "4320 x 2160")
+            self.table.insert(4, col2, "105°")
+            self.table.insert(5, col2, "5300 mAh")
+            self.table.insert(6, col2, "586")
+            self.table.insert(7, col2, "90")
+            self.table.insert(8, col2, "90")
+            self.table.insert(8, col2, 8)
+            self.table.insert(9, col2, "54 000")
+            self.photo_right_vibor.configure(image=self.photo1)
+        elif self.name1 == "Oculus Quest3":
+            self.combo()
+            self.table.insert(1, col2, "Oculus Quest3")
+            self.table.insert(2, col2, connect_nonwire)
+            self.table.insert(3, col2, "4416 x 2064")
+            self.table.insert(4, col2, "110°")
+            self.table.insert(5, col2, "5300 mAh")
+            self.table.insert(6, col2, "503")
+            self.table.insert(7, col2, "90")
+            self.table.insert(8, col2, 8)
+            self.table.insert(9, col2, "70 000")
+            self.photo_right_vibor.configure(image=self.photo2)
+        elif self.name1 == "Pimax crystal":
+            self.combo()
+            self.table.insert(1, col2, "Pimax crystal")
+            self.table.insert(2, col2, connect_nonwire)
+            self.table.insert(3, col2, "5760 x 2880")
+            self.table.insert(4, col2, "120°")
+            self.table.insert(5, col2, "6000 mAh")
+            self.table.insert(6, col2, "840")
+            self.table.insert(7, col2, "150")
+            self.table.insert(8, col2, 8)
+            self.table.insert(9, col2, "от 143 000")
+            self.photo_right_vibor.configure(image=self.photo3)
+        elif self.name1 == "HTC Vive Pro":
+            self.combo()
+            self.table.insert(1, col2, "HTC Vive Pro")
+            self.table.insert(2, col2, connect_wire)
+            self.table.insert(3, col2, "2880 x 1600")
+            self.table.insert(4, col2, "110°")
+            self.table.insert(5, col2, no_battery)
+            self.table.insert(6, col2, "520")
+            self.table.insert(7, col2, "90")
+            self.table.insert(8, col2, self.ozu)
+            self.table.insert(9, col2, "от 107 000")
+            self.photo_right_vibor.configure(image=self.photo4)
+        elif self.name1 == "Playstation VR 2":
+            self.combo()
+            self.table.insert(1, col2, "Playstation VR 2")
+            self.table.insert(2, col2, connect_wire)
+            self.table.insert(3, col2, "4000 x 2040")
+            self.table.insert(4, col2, "110°")
+            self.table.insert(5, col2, no_battery)
+            self.table.insert(6, col2, "600")
+            self.table.insert(7, col2, "120")
+            self.table.insert(8, col2, "Подключается только к playstation 5")
+            self.table.insert(9, col2, "75 000")
+            self.photo_right_vibor.configure(image=self.photo5)
+        elif self.name1 == "Valve Index VRkit":
+            self.combo()
+            self.table.insert(1, col2, "Valve Index VRkit")
+            self.table.insert(2, col2, connect_wire)
+            self.table.insert(3, col2, "2880 x 1600")
+            self.table.insert(4, col2, "130°")
+            self.table.insert(5, col2, no_battery)
+            self.table.insert(6, col2, "810")
+            self.table.insert(7, col2, "144")
+            self.table.insert(8, col2, self.ozu)
+            self.table.insert(9, col2, "180 000")
+            self.photo_right_vibor.configure(image=self.photo6)
+        else:
+            pass #ничего не делать при отсутствии выборе второго шлема
+        if self.name != "" and self.name1 != "": # вызов функций сравнения шлема
+            self.sravn_pico()
+            self.sravn_oculus()
+            self.sravn_pimax()
+            self.sravn_htc()
+            self.sravn_playstation()
+            self.sravn_valve()
+
+
+    def sravn_pico(self):# функция сравнения для шлема Pico 4
+        luchshe="Лучше"
+        huje="Хуже"
+        ravni="Равны"
+        OtPC="Зависит от компьютера"
+        if self.name == "Pico 4" and self.name1 == "Oculus Quest3":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, luchshe)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, ravni)
+            self.table.insert(6, 3, ravni)
+            self.table.insert(7, 3, ravni)
+            self.table.insert(8, 3, ravni)
+            self.table.insert(9, 3, luchshe)
+        elif self.name == "Pico 4" and self.name1 == "Pimax crystal":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, luchshe)
+            self.table.insert(7, 3, huje)
+            self.table.insert(8, 3, ravni)
+            self.table.insert(9, 3, luchshe)
+        elif self.name == "Pico 4" and self.name1 == "HTC Vive Pro":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, luchshe)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, luchshe)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, ravni)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, luchshe)
+        elif self.name == "Pico 4" and self.name1 == "Playstation VR 2":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, luchshe)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, luchshe)
+            self.table.insert(6, 3, luchshe)
+            self.table.insert(7, 3, huje)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, luchshe)
+        elif self.name == "Pico 4" and self.name1 == "Valve Index VRkit":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, luchshe)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, luchshe)
+            self.table.insert(6, 3, luchshe)
+            self.table.insert(7, 3, huje)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, luchshe)
 
 
 #вызов класса и запуск прилоения
