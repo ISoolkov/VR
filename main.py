@@ -790,6 +790,118 @@ class App(customtkinter.CTk): #создание класса приложени�
             self.table.insert(7, 3, huje)
             self.table.insert(8, 3, ravni)
             self.table.insert(9, 3, luchshe)
+            
+    def sravn_playstation(self):# функция сравнения для шлема Pico 4
+        luchshe = "Лучше"
+        huje = "Хуже"
+        ravni = "Равны"
+        OtPC = "Зависит от компьютера"
+        if self.name == "Playstation VR 2" and self.name1 == "Pico 4":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, luchshe)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, luchshe)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, huje)
+        elif self.name == "HPlaystation VR 2" and self.name1 == "Oculus Quest3":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, ravni)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, ravni)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, huje)
+        elif self.name == "Playstation VR 2" and self.name1 == "Pimax crystal":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, luchshe)
+            self.table.insert(7, 3, huje)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, luchshe)
+        elif self.name == "Playstation VR 2" and self.name1 == "HTC Vive Pro":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, luchshe)
+            self.table.insert(4, 3, ravni)
+            self.table.insert(5, 3, ravni)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, luchshe)
+            self.table.insert(8, 3, ravni)
+            self.table.insert(9, 3, luchshe)
+        elif self.name == "Playstation VR 2" and self.name1 == "Valve Index VRkit":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, luchshe)
+            self.table.insert(4, 3, huje)
+            self.table.insert(5, 3, ravni)
+            self.table.insert(6, 3, luchshe)
+            self.table.insert(7, 3, huje)
+            self.table.insert(8, 3, ravni)
+            self.table.insert(9, 3, luchshe)
+            
+    def sravn_valve(self):# функция сравнения для шлема Pico 4
+        luchshe = "Лучше"
+        huje = "Хуже"
+        ravni = "Равны"
+        OtPC = "Зависит от компьютера"
+        if self.name == "Valve Index VRkit" and self.name1 == "Pico 4":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, luchshe)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, luchshe)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, huje)
+        elif self.name == "Valve Index VRkit" and self.name1 == "Oculus Quest3":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, luchshe)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, luchshe)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, huje)
+        elif self.name == "Valve Index VRkit" and self.name1 == "Pimax crystal":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, luchshe)
+            self.table.insert(5, 3, huje)
+            self.table.insert(6, 3, luchshe)
+            self.table.insert(7, 3, huje)
+            self.table.insert(8, 3, OtPC)
+            self.table.insert(9, 3, huje)
+        elif self.name == "Valve Index VRkit" and self.name1 == "HTC Vive Pro":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, ravni)
+            self.table.insert(4, 3, luchshe)
+            self.table.insert(5, 3, ravni)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, luchshe)
+            self.table.insert(8, 3, ravni)
+            self.table.insert(9, 3, huje)
+        elif self.name == "Valve Index VRkit" and self.name1 == "Playstation VR 2":
+            self.table.insert(1, 3, "-")
+            self.table.insert(2, 3, ravni)
+            self.table.insert(3, 3, huje)
+            self.table.insert(4, 3, luchshe)
+            self.table.insert(5, 3, ravni)
+            self.table.insert(6, 3, huje)
+            self.table.insert(7, 3, luchshe)
+            self.table.insert(8, 3, ravni)
+            self.table.insert(9, 3, huje)
 
 
 #вызов класса и запуск прилоения
